@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Guider: Career Choices After 12th Grade</title>
+  <meta name="description" content="Get personalized career recommendations, entrance exams guidance, and visual roadmaps for school students finishing 12th class.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Ambient background glow blobs -->
+  <div class="glow-blob blob-1"></div>
+  <div class="glow-blob blob-2"></div>
+  <div class="glow-blob blob-3"></div>
+
+  <!-- App Header -->
+  <header>
+    <div class="header-container">
+      <div id="nav-logo" class="logo-section">
+        <span class="logo-icon">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10" fill="#1d4ed8"/>
+            <path d="M12 5L15 12L12 10L9 12L12 5Z" fill="white" transform="rotate(45, 12, 12)"/>
+          </svg>
+        </span>
+        <span class="logo-text">Your Guider</span>
+      </div>
+      
+      <!-- Protected Navigation (Visible when Logged In) -->
+      <nav id="main-navigation" style="display: none;">
+        <ul>
+          <li><a href="#" data-nav-target="dashboard" class="active-link" id="nav-link-dashboard">Dashboard</a></li>
+          <li><a href="#" data-nav-target="explorer" id="nav-link-explorer">Explore Careers</a></li>
+          <li><a href="#" data-nav-target="bookmarks" id="nav-link-bookmarks">Saved Paths</a></li>
+          <li><a href="#" data-nav-target="gov-jobs" id="nav-link-gov-jobs">Sarkari Jobs</a></li>
+          <li><a href="#" data-nav-target="resources" id="nav-link-resources">Resources</a></li>
+          <li><a href="#" data-nav-target="feedbacks" id="nav-link-feedbacks">Feedback Messages</a></li>
+        </ul>
+      </nav>
+      <!-- Auth Action Pill / Button -->
+      <div id="auth-navigation" class="flex-row btn-gap">
+        <button onclick="navigateTo('login')" class="btn btn-outline btn-sm btn-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Login
+        </button>
+        <button onclick="navigateTo('signup')" class="btn btn-primary btn-sm">Register</button>
+        <button onclick="navigateTo('login')" class="btn btn-outline btn-sm btn-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Profile Login
+        </button>
+      </div>
+    </div>
+  </header>
+  <!-- Main View Router Container -->
+  <main class="container">
+    <!-- 1. Landing Screen (Default View) -->
+    <section id="view-landing" class="screen-view active">
+      <!-- Grid decorations -->
+      <div class="decor-grid-dots"></div>
+      <div class="decor-circle-concentric"></div>
+      
+      <div class="hero-layout">
+        <div class="hero-text-section">
+          <h1>12th ke baad <br><span class="text-gradient">kya karein?</span></h1>
+          <h2 class="hero-tagline"><span class="text-gradient">Your Guider</span> batayega!</h2>
+          <p class="hero-subtitle">12th class complete ho gayi hai aur career choose karne me confusion ho rahi hai? Your Guider ke sath apne interests ke hisab se suitable career options aur step-by-step roadmaps check karein.</p>
+          <div class="hero-actions">
+            <button onclick="navigateTo('signup')" id="cta-start-journey" class="btn btn-primary">Chalo Start Karein ➔</button>
+          </div>
+        </div>
+        <div class="hero-image-section">
+          <div class="hero-graphic-card">
+            <img src="hero.png" alt="Your Guider" id="hero-graphic-img">
+            
+            <!-- Interactive Signpost Overlay -->
+            <div class="signpost-container">
+              <div class="signpost-pole"></div>
+              
+              <button class="signpost-arrow arrow-engineering" data-category="science_pcm">
+                <span class="signpost-icon">⚙️</span>
+                <span class="signpost-label">Engineering</span>
+              </button>
+              
+              <button class="signpost-arrow arrow-medical" data-category="science_pcb">
+                <span class="signpost-icon">🩺</span>
+                <span class="signpost-label">Medical</span>
+              </button>
+              
+              <button class="signpost-arrow arrow-commerce" data-category="commerce">
+                <span class="signpost-icon">📊</span>
+                <span class="signpost-label">Commerce</span>
+              </button>
+              
+              <button class="signpost-arrow arrow-design" data-category="arts_humanities">
+                <span class="signpost-icon">🎨</span>
+                <span class="signpost-label">Design</span>
+              </button>
+              
+              <button class="signpost-arrow arrow-law" data-category="arts_humanities">
+                <span class="signpost-icon">⚖️</span>
+                <span class="signpost-label">Law</span>
+              </button>
+              
+              <button class="signpost-arrow arrow-more" data-category="more">
+                <span class="signpost-icon">•••</span>
+                <span class="signpost-label">and more...</span>
+              </button>
+            </div>
+
+            <!-- Compass promo card at the bottom right -->
+            <div class="compass-promo-card">
+              <div class="compass-icon-circle">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" />
+                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="white" />
+                </svg>
+              </div>
+              <div class="compass-promo-text">
+                <h4>Not sure what's right for you?</h4>
+                <p>Take our interest test and get personalized career suggestions.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Highlights Carousel Slider -->
+      <div class="slider-wrapper">
+        <h3 class="slider-heading">Your Guider Highlights</h3>
+        <div class="carousel-container">
+          <button class="carousel-nav prev-btn" type="button">❮</button>
+          
+          <div class="carousel-track-container">
+            <ul class="carousel-track">
+              <!-- Slide 1: Why Your Guider -->
+              <li class="carousel-slide">
+                <div class="slide-content">
+                  <div class="slide-icon">🚀</div>
+                  <h3>Why Your Guider?</h3>
+                  <p>12th class complete hone ke baad streams aur competitive exams choose karne me confuse hona natural hai. Your Guider aapko smart logic, customizable templates aur correct parameters ke sath target destination choose karne me help karta hai.</p>
+                  <div class="slide-features">
+                    <span class="feat-chip">🧠 AI Aptitude Analysis</span>
+                    <span class="feat-chip">🗺️ Timeline Roadmaps</span>
+                    <span class="feat-chip">🏛️ Sarkari & Private Jobs DB</span>
+                  </div>
+                </div>
+              </li>
+              <!-- Slide 2: Clarity isn't luck, it's a system -->
+              <li class="carousel-slide">
+                <div class="slide-content">
+                  <div class="slide-icon">⚙️</div>
+                  <h3>Clarity isn't luck, it's a system.</h3>
+                  <p>Hum random suggestions me believe nahi karte. Our career mapping framework uses a 4-step systematic pipeline to transform your academic stream parameters into target career milestones:</p>
+                  <div class="system-steps">
+                    <div class="sys-step"><span>1</span> Profile Setup</div>
+                    <div class="sys-step"><span>2</span> Aptitude Test</div>
+                    <div class="sys-step"><span>3</span> Stream Matches</div>
+                    <div class="sys-step"><span>4</span> Exams & Roadmaps</div>
+                  </div>
+                </div>
+              </li>
+              <!-- Slide 3: Adaptive Goals -->
+              <li class="carousel-slide">
+                <div class="slide-content">
+                  <div class="slide-icon">🎯</div>
+                  <h3>Adaptive Goals</h3>
+                  <p>Aapki choice, interests aur dashboard preferences absolute fix nahi rehti, isliye humara career tracking system details dynamically change aur adapt karta hai. Aap easily options compare aur shortlist save kar sakte hain.</p>
+                  <span class="feat-chip" style="background: rgba(234, 88, 12, 0.1); color: var(--accent);">🏆 Live Progress & Shortlists Tracking</span>
+                </div>
+              </li>
+              <!-- Slide 4: We Listen -->
+              <li class="carousel-slide">
+                <div class="slide-content">
+                  <div class="slide-icon">💬</div>
+                  <h3>We Listen.</h3>
+                  <p>Aapki active advice, suggest-box reports aur dashboard issues humare liye direct priorities hain. App me koi suggestion dena ho ya koi issue mila, simple form se submit karein aur feedback loop complete karein.</p>
+                  <span class="feat-chip" style="background: rgba(13, 148, 136, 0.1); color: var(--secondary);">📧 100% User-Driven Support Loop</span>
+                </div>
+              </li>
+              <!-- Slide 5: Ready to Begin? -->
+              <li class="carousel-slide">
+                <div class="slide-content">
+                  <div class="slide-icon">⚡</div>
+                  <h3>Ready to Begin?</h3>
+                  <p>Take charge of your academic destiny today. Apna quick account register status compile karein, test assessments complete karein, aur expert mentorship rules ka access paayein.</p>
+                  <button onclick="navigateTo('signup')" class="btn btn-primary btn-sm mt-2">Start Profile Registration ➔</button>
+                </div>
+              </li>
+            </ul>
+          </div>
+          
+          <button class="carousel-nav next-btn" type="button">❯</button>
+        </div>
+        
+        <!-- Pagination Indicator Dots -->
+        <div class="carousel-nav-dots">
+          <span class="nav-dot active" data-slide="0"></span>
+          <span class="nav-dot" data-slide="1"></span>
+          <span class="nav-dot" data-slide="2"></span>
+          <span class="nav-dot" data-slide="3"></span>
+          <span class="nav-dot" data-slide="4"></span>
+        </div>
+      </div>
+
+      <!-- Social Media / Connect Section at the absolute bottom of landing page -->
+      <div class="social-connect-section">
+        <div class="social-connect-content">
+          <div class="social-icon-decor">📖</div>
+          <h3>Want to be part of the story?</h3>
+          <p>Hamare active communities join karein, updates paayein, ya team ke sath collaborate karne ke liye connect karein:</p>
+          <div class="social-links-row">
+            <a href="https://instagram.com" target="_blank" class="social-link-btn icon-insta" title="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            
+            <a href="https://linkedin.com" target="_blank" class="social-link-btn icon-linkedin" title="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            
+            <a href="https://github.com" target="_blank" class="social-link-btn icon-github" title="GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+            </a>
+            
+            <a href="mailto:contact@yourguider.com" class="social-link-btn icon-email" title="Email Us">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 2a. Signup Screen -->
+    <section id="view-signup" class="screen-view">
+      <div class="form-max-width glass-panel">
+        <div class="tabs-header mb-4 text-center">
+          <h2>Apna Career Profile Banayein</h2>
+          <p class="text-muted mt-2">Apni details enter karein taaki hum aapko best guidance aur roadmaps recommend kar sakein.</p>
+        </div>
+        
+        <form id="register-form">
+          <div class="form-group">
+            <label class="form-label" for="reg-name">Aapka Poora Naam (Full Name)</label>
+            <input type="text" id="reg-name" class="form-input" placeholder="Apna naam likhein" required>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="reg-stream">Aapka Class 12 Stream</label>
+            <select id="reg-stream" class="form-select" required>
+              <option value="" disabled selected>Apna current stream choose karein</option>
+              <option value="science_pcm">Science (PCM - Physics, Chemistry, Maths)</option>
+              <option value="science_pcb">Science (PCB - Physics, Chemistry, Biology)</option>
+              <option value="commerce">Commerce (Accountancy, Economics, Business)</option>
+              <option value="arts_humanities">Arts & Humanities (History, Psychology, Art)</option>
+              <option value="undecided">Undecided / Kuch aur</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Aapko kis cheez me interest hai?</label>
+            <div class="interests-grid">
+              <div>
+                <input type="checkbox" id="int-tech" value="tech" class="interest-cb">
+                <label for="int-tech" class="interest-chip-label">💻 Tech & Coding</label>
+              </div>
+              <div>
+                <input type="checkbox" id="int-med" value="medical" class="interest-cb">
+                <label for="int-med" class="interest-chip-label">🩺 Medical/Bio</label>
+              </div>
+              <div>
+                <input type="checkbox" id="int-biz" value="finance" class="interest-cb">
+                <label for="int-biz" class="interest-chip-label">📊 Finance/Biz</label>
+              </div>
+              <div>
+                <input type="checkbox" id="int-art" value="artistic" class="interest-cb">
+                <label for="int-art" class="interest-chip-label">🎨 Arts & Design</label>
+              </div>
+              <div>
+                <input type="checkbox" id="int-law" value="legal" class="interest-cb">
+                <label for="int-law" class="interest-chip-label">⚖️ Law & Society</label>
+              </div>
+              <div>
+                <input type="checkbox" id="int-fly" value="aviation" class="interest-cb">
+                <label for="int-fly" class="interest-chip-label">✈️ Flying & Travel</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-contact">Mobile Number / Email Address</label>
+            <input type="text" id="reg-contact" class="form-input" placeholder="e.g. +91 98765 43210 or student@domain.com" required>
+          </div>
+          <!-- Send OTP Trigger -->
+          <div class="form-group" id="reg-otp-trigger-container">
+            <button type="button" id="btn-send-otp" class="btn btn-secondary btn-full">Send Verification OTP 📩</button>
+          </div>
+          <!-- Hidden OTP Entry field -->
+          <div class="form-group" id="reg-otp-entry-container" style="display: none;">
+            <label class="form-label" for="reg-otp">Enter 4-Digit OTP Code</label>
+            <input type="text" id="reg-otp" class="form-input" placeholder="Enter OTP (Use 1234 for testing)" maxlength="4">
+            <div id="otp-timer-message" style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--accent); font-weight: 600;">
+              OTP sent! Resend available in <span id="otp-countdown">30</span>s
+            </div>
+          </div>
+          <!-- Submit Button, shown after OTP is triggered -->
+          <button type="submit" id="auth-register-submit" class="btn btn-primary btn-full mt-4" style="display: none;">OTP Verify Karke Aage Badhein 🚀</button>
+        </form>
+
+        <p class="text-center mt-4 text-muted" style="font-size: 0.95rem;">
+          Pehle se account hai? <a href="#" onclick="navigateTo('login'); return false;" style="color: var(--primary); font-weight: 600; text-decoration: underline;">Yahan Login karein</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- 2b. Login Screen -->
+    <section id="view-login" class="screen-view">
+      <div class="form-max-width glass-panel">
+        <div class="tabs-header mb-4 text-center">
+          <h2>Apna Account Login Karein</h2>
+          <p class="text-muted mt-2">Registered Mobile ya Email enter karke OTP se verify karein.</p>
+        </div>
+        
+        <form id="login-form">
+          <div class="form-group">
+            <label class="form-label" for="login-contact">Mobile Number ya Email Address:</label>
+            <div class="flex-row btn-gap">
+              <input type="text" id="login-contact" class="form-input" placeholder="Mobile number ya email likhein" required>
+              <button type="button" id="btn-login-send-otp" class="btn btn-secondary" style="flex-shrink: 0;">OTP Bhejein</button>
+            </div>
+          </div>
+          <div class="form-group" id="login-otp-container" style="display: none; margin-top: 1rem;">
+            <label class="form-label" for="login-otp">OTP Code Enter Karein</label>
+            <div class="flex-row btn-gap">
+              <input type="text" id="login-otp" class="form-input" placeholder="Use 1234" maxlength="4">
+              <button type="submit" id="auth-login-submit" class="btn btn-primary" style="flex-shrink: 0;">Login ➔</button>
+            </div>
+            <div id="login-otp-timer-message" style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--accent); font-weight: 600;">
+              OTP sent! Resend available in <span id="login-otp-countdown">30</span>s
+            </div>
+          </div>
+        </form>
+
+        <p class="text-center mt-4 text-muted" style="font-size: 0.95rem;">
+          Naya profile banana hai? <a href="#" onclick="navigateTo('signup'); return false;" style="color: var(--primary); font-weight: 600; text-decoration: underline;">Yahan Register karein</a>
+        </p>
+      </div>
+    </section>
+    <!-- 3. Student Dashboard Screen -->
+    <section id="view-dashboard" class="screen-view">
+      <div class="dashboard-grid">
+        <!-- Main Dashboard Column -->
+        <div class="main-dashboard-col">
+          <h2 id="welcome-user-heading" class="panel-title">Welcome, Student!</h2>
+          
+          <div class="dashboard-stats-row">
+            <div class="stat-card">
+              <div id="user-stream-badge" class="stat-num text-glow-cyan" style="font-size: 1.5rem; padding: 0.5rem 0;">Science (PCM)</div>
+              <div class="stat-label">Your Current Stream</div>
+            </div>
+            <div class="stat-card">
+              <div id="dashboard-bookmark-count" class="stat-num text-glow">0 Saved</div>
+              <div class="stat-label">Shortlisted Career Options</div>
+            </div>
+          </div>
+          <!-- Suggested Careers widget -->
+          <div class="suggestions-panel">
+            <h3 class="panel-title">Top Recommended Careers for You</h3>
+            <div id="dashboard-suggestions-grid" class="careers-list-grid mt-3">
+              <!-- Dynamically populated career cards -->
+            </div>
+            <button onclick="navigateTo('explorer')" id="dash-view-all-careers" class="btn btn-secondary btn-sm mt-8">View All Career Options ➔</button>
+          </div>
+        </div>
+        <!-- Sidebar / Assessment Status Column -->
+        <div class="sidebar-dashboard-col">
+          <div class="glass-panel" style="padding: 1.5rem;">
+            <h3>Aptitude Assessment Test</h3>
+            <hr class="divider-fine">
+            <div id="assessment-card-dynamic">
+              <!-- Dynamically rendered based on whether quiz completed -->
+            </div>
+          </div>
+          <!-- Quick Tip widget -->
+          <div class="glass-panel mt-4" style="padding: 1.5rem; background: rgba(13,148,136,0.05);">
+            <h4 style="color: var(--secondary)">💡 Zaroori Advice</h4>
+            <p class="text-muted mt-2" style="font-size: 0.9rem;">12th ke baad stream select karne me confuse hona bilkul okay hai! Aap bas apna Aptitude Test complete karein ya chat tab me jakar humare AI Career Mentor se apne sawaal bejhijhak puchein.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 4. Career Explorer Screen -->
+    <section id="view-explorer" class="screen-view">
+      <div class="explorer-header-section mb-4">
+        <h2>Your Guider: Career Explorer</h2>
+        <p class="text-muted mt-1">12th class ke baad availability ke hisab se alag-alag fields ke career scopes check karein.</p>
+      </div>
+      <!-- Filters tab row -->
+      <div class="filter-tabs-row">
+        <button class="filter-btn active" data-filter="all">🌟 All Categories</button>
+        <button class="filter-btn" data-filter="science_pcm">💻 Science (PCM)</button>
+        <button class="filter-btn" data-filter="science_pcb">🧬 Science (PCB)</button>
+        <button class="filter-btn" data-filter="commerce">📈 Commerce & Finance</button>
+        <button class="filter-btn" data-filter="arts_humanities">🎨 Arts & Design</button>
+        <button class="filter-btn" data-filter="alternative_vocational">✈️ Alternative / Vocational</button>
+      </div>
+      <!-- Careers grid -->
+      <div id="explorer-careers-grid" class="careers-list-grid">
+        <!-- Loaded via JS -->
+      </div>
+    </section>
+    <!-- 5. Interactive Quiz Screen -->
+    <section id="view-quiz" class="screen-view">
+      <div class="quiz-inner-box">
+        <div class="text-center mb-4">
+          <h2>Career Aptitude Assessment</h2>
+          <p class="text-muted mt-1">Apni pasand aur strengths janne ke liye in questions ke natural answers dein.</p>
+        </div>
+        
+        <!-- Dynamic Quiz Card Window -->
+        <div id="quiz-inner-container">
+          <!-- Populated dynamically by app.js -->
+        </div>
+      </div>
+    </section>
+    <!-- 6. Career Roadmap Details Screen -->
+    <section id="view-roadmap" class="screen-view">
+      <div class="roadmap-back-row">
+        <button onclick="navigateTo('explorer')" id="roadmap-back-btn" class="btn btn-secondary btn-sm">⬅ Back to Career List</button>
+      </div>
+      <div class="roadmap-header-panel">
+        <h2 id="roadmap-career-title" class="text-glow">Roadmap Details</h2>
+        <div id="roadmap-career-details">
+          <!-- Dynamically loaded quick metadata info card -->
+        </div>
+      </div>
+      <!-- Vertical Roadmap Timeline -->
+      <div class="timeline-vertical" id="roadmap-timeline-steps">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+    <!-- 7. Shortlisted Bookmarks Screen -->
+    <section id="view-bookmarks" class="screen-view">
+      <div class="bookmarks-header mb-4">
+        <h2>Aapke Saved (Shortlisted) Careers</h2>
+        <p class="text-muted mt-1">Yahan aapke pasandida careers saved hain. Aap inke options aur roadmaps compare kar sakte hain.</p>
+      </div>
+      <div id="bookmarks-grid" class="careers-list-grid">
+        <!-- Bookmarked cards show up here -->
+      </div>
+    </section>
+    <!-- 8. Government Jobs Screen -->
+    <section id="view-gov-jobs" class="screen-view">
+      <div class="gov-jobs-header mb-4">
+        <h2>Sarkari Jobs (Government Careers) 🏛️</h2>
+        <p class="text-muted mt-1">12th pass ya graduation ke baad direct selection wali desk, police, aur defense jobs ke roadmaps check karein.</p>
+      </div>
+      <div id="gov-jobs-grid" class="careers-list-grid">
+        <!-- Loaded dynamically from CAREER_DATABASE.govt_jobs via app.js -->
+      </div>
+    </section>
+
+    <!-- 8b. Profile Screen -->
+    <section id="view-profile" class="screen-view">
+      <div class="form-max-width glass-panel">
+        <div class="text-center mb-4">
+          <div style="font-size: 4rem; margin-bottom: 0.5rem;">👤</div>
+          <h2>Mera Career Profile</h2>
+          <p class="text-muted mt-1">Aapki details aur test status neeche summarize kiye gaye hain.</p>
+        </div>
+        
+        <hr class="divider-fine mb-4">
+        
+        <div class="profile-details-card" style="background: #f8fafc; padding: 1.5rem; border-radius: 12px; border: 1px solid var(--glass-border);">
+          <div style="margin-bottom: 1.25rem; display: flex; justify-content: space-between; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.75rem;">
+            <span style="color: var(--text-muted); font-weight: 600;">Naam (Name):</span>
+            <span id="profile-name-val" style="font-weight: 700; color: var(--primary);">N/A</span>
+          </div>
+          <div style="margin-bottom: 1.25rem; display: flex; justify-content: space-between; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.75rem;">
+            <span style="color: var(--text-muted); font-weight: 600;">Contact:</span>
+            <span id="profile-contact-val" style="font-weight: 700; color: var(--text-primary);">N/A</span>
+          </div>
+          <div style="margin-bottom: 1.25rem; display: flex; justify-content: space-between; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.75rem;">
+            <span style="color: var(--text-muted); font-weight: 600;">Class 12 Stream:</span>
+            <span id="profile-stream-val" style="font-weight: 700; color: var(--secondary);">N/A</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; padding-bottom: 0.25rem;">
+            <span style="color: var(--text-muted); font-weight: 600;">Aptitude Result:</span>
+            <span id="profile-result-val" style="font-weight: 700; color: var(--accent);">N/A</span>
+          </div>
+        </div>
+
+        <!-- Feedback Form Card -->
+        <div class="feedback-card mt-4" style="background: #f8fafc; padding: 1.5rem; border-radius: 12px; border: 1px solid var(--glass-border); margin-top: 2rem;">
+          <h3 style="color: var(--primary); font-size: 1.15rem; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+            💬 Advice / Issue Report
+          </h3>
+          <p class="text-muted" style="font-size: 0.85rem; margin-bottom: 1rem;">
+            App me koi issue mila ya koi suggestion dena chahte hain? Humein bataayein!
+          </p>
+          
+          <form id="feedback-form">
+            <div class="form-group" style="margin-bottom: 1rem;">
+              <label class="form-label" for="feedback-type" style="font-size: 0.8rem; margin-bottom: 0.25rem;">Feedback Type</label>
+              <select id="feedback-type" class="form-select" style="font-size: 0.9rem; padding: 0.6rem 0.8rem;" required>
+                <option value="suggestion" selected>💡 Advice / Suggestion</option>
+                <option value="issue">🪲 Report an Issue / Bug</option>
+                <option value="other">💬 General Feedback</option>
+              </select>
+            </div>
+            <div class="form-group" style="margin-bottom: 1rem;">
+              <label class="form-label" for="feedback-msg" style="font-size: 0.8rem; margin-bottom: 0.25rem;">Aapka Message</label>
+              <textarea id="feedback-msg" class="form-input" style="height: 80px; resize: none; font-family: var(--font-body); font-size: 0.9rem; padding: 0.6rem 0.8rem;" placeholder="Apne suggestion ya issue ke baare me likhein..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full btn-sm" style="margin-top: 0.5rem;">Submit Feedback ➔</button>
+          </form>
+        </div>
+
+        <!-- Submitted Feedback List Section -->
+        <div id="profile-feedback-logs-section" class="feedback-list-card mt-4" style="background: #f8fafc; padding: 1.5rem; border-radius: 12px; border: 1px solid var(--glass-border); margin-top: 2rem;">
+          <h3 style="color: var(--primary); font-size: 1.15rem; display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.5rem;">
+            <span>📋 Submitted Feedbacks / Messages</span>
+            <button id="btn-toggle-feedback-view" class="btn btn-secondary btn-sm" style="padding: 0.35rem 0.75rem; font-size: 0.75rem;">Show Feedbacks</button>
+          </h3>
+          <p class="text-muted" style="font-size: 0.85rem; margin-bottom: 1rem;">
+            Apne ya dusre users ke submit kiye gaye messages aur logs dekhein.
+          </p>
+          
+          <div id="feedback-items-container" style="display: none; flex-direction: column; gap: 0.85rem; margin-top: 1rem; max-height: 250px; overflow-y: auto; padding-right: 0.25rem;">
+            <!-- Dynamically populated via JS -->
+          </div>
+
+          <div style="margin-top: 1.25rem; border-top: 1px dashed #cbd5e1; padding-top: 1rem; text-align: center;">
+            <button onclick="navigateTo('feedbacks'); return false;" class="btn btn-primary btn-sm btn-full" style="background: var(--secondary); border-color: var(--secondary); margin-top: 0.5rem;">
+              Open Dedicated Feedback Board ➔
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8c. Feedbacks Board Screen -->
+    <section id="view-feedbacks" class="screen-view">
+      <div class="glass-panel" style="max-width: 950px; margin: 0 auto; padding: 2.25rem;">
+        <div class="explorer-header-section mb-4" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h2>Owner & Admin Dashboard 👑</h2>
+            <p class="text-muted mt-1">Aapke app ke students database, details, aur feedback message logs yahan live dikhte hain.</p>
+          </div>
+          <button onclick="navigateTo('profile')" class="btn btn-secondary btn-sm">⬅ Profile Page</button>
+        </div>
+        
+        <hr class="divider-fine mb-4">
+
+        <!-- Statistics & Counter Cards -->
+        <div class="dashboard-stats-row" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-bottom: 2rem;">
+          <div class="stat-card" style="padding: 1.25rem;">
+            <div id="feedback-stat-total" class="stat-num text-glow" style="font-size: 2.25rem; font-weight: 900; color: var(--primary);">0</div>
+            <div class="stat-label">Total Feedbacks</div>
+          </div>
+          <div class="stat-card" style="padding: 1.25rem;">
+            <div id="feedback-stat-suggestions" class="stat-num text-glow-cyan" style="font-size: 2.25rem; font-weight: 900; color: var(--secondary);">0</div>
+            <div class="stat-label">💡 Suggestions</div>
+          </div>
+          <div class="stat-card" style="padding: 1.25rem;">
+            <div id="feedback-stat-issues" class="stat-num" style="font-size: 2.25rem; font-weight: 900; color: var(--rose);">0</div>
+            <div class="stat-label">🪲 Bug Reports</div>
+          </div>
+          <div class="stat-card" style="padding: 1.25rem;">
+            <div id="admin-stat-students" class="stat-num" style="font-size: 2.25rem; font-weight: 900; color: var(--accent);">0</div>
+            <div class="stat-label">Registered Students</div>
+          </div>
+        </div>
+
+        <div class="feedback-board-layout" style="display: grid; gap: 2rem; grid-template-columns: 1fr 1.5fr;">
+          <!-- Left Column: Submit New Feedback Form inside Feedback Board -->
+          <div class="feedback-sidebar-col">
+            <div class="glass-panel" style="background: rgba(255, 255, 255, 0.5); padding: 1.5rem; border-radius: 16px; border: 1px solid var(--glass-border);">
+              <h3 style="color: var(--primary); font-size: 1.15rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                ➕ Naya Feedback
+              </h3>
+              <p class="text-muted" style="font-size: 0.85rem; margin-bottom: 1.25rem;">
+                Koi suggestion dena hai ya bug mila? Direct form se submit karein.
+              </p>
+              
+              <form id="board-feedback-form">
+                <div class="form-group" style="margin-bottom: 1rem;">
+                  <label class="form-label" for="board-feedback-type" style="font-size: 0.8rem; margin-bottom: 0.25rem;">Feedback Type</label>
+                  <select id="board-feedback-type" class="form-select" style="font-size: 0.9rem; padding: 0.6rem 0.8rem;" required>
+                    <option value="suggestion" selected>💡 Advice / Suggestion</option>
+                    <option value="issue">🪲 Report an Issue / Bug</option>
+                    <option value="other">💬 General Feedback</option>
+                  </select>
+                </div>
+                <div class="form-group" style="margin-bottom: 1.25rem;">
+                  <label class="form-label" for="board-feedback-msg" style="font-size: 0.8rem; margin-bottom: 0.25rem;">Aapka Message</label>
+                  <textarea id="board-feedback-msg" class="form-input" style="height: 100px; resize: none; font-family: var(--font-body); font-size: 0.9rem; padding: 0.6rem 0.8rem;" placeholder="Apna message yahan likhein..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full btn-sm">Submit To Board ➔</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Log View with Filters and Search -->
+          <div class="feedback-main-col">
+            <!-- Admin Dashboard Tabs -->
+            <div class="admin-tab-row" style="display: flex; gap: 0.75rem; border-bottom: 2px solid var(--glass-border); margin-bottom: 1.5rem; padding-bottom: 0.5rem; flex-wrap: wrap;">
+              <button id="btn-tab-feedbacks" class="filter-btn active" style="padding: 0.5rem 1.25rem; border-radius: 12px; font-weight: 700; font-size: 0.9rem;">
+                💬 User Feedbacks
+              </button>
+              <button id="btn-tab-students" class="filter-btn" style="padding: 0.5rem 1.25rem; border-radius: 12px; font-weight: 700; font-size: 0.9rem;">
+                👥 Registered Students
+              </button>
+            </div>
+
+            <!-- Feedbacks Tab Filters & Search Controls -->
+            <div id="admin-feedbacks-controls" style="background: rgba(255, 255, 255, 0.4); padding: 1.25rem; border-radius: 16px; border: 1px solid var(--glass-border); margin-bottom: 1.5rem;">
+              <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+                <button class="filter-btn active feedback-board-filter-btn" data-f-filter="all" style="padding: 0.45rem 1rem; font-size: 0.85rem;">All</button>
+                <button class="filter-btn feedback-board-filter-btn" data-f-filter="suggestion" style="padding: 0.45rem 1rem; font-size: 0.85rem;">💡 Suggestions</button>
+                <button class="filter-btn feedback-board-filter-btn" data-f-filter="issue" style="padding: 0.45rem 1rem; font-size: 0.85rem;">🪲 Bugs</button>
+                <button class="filter-btn feedback-board-filter-btn" data-f-filter="other" style="padding: 0.45rem 1rem; font-size: 0.85rem;">💬 General</button>
+              </div>
+              <div class="form-group" style="margin-bottom: 0;">
+                <input type="text" id="feedback-search-input" class="form-input" style="font-size: 0.9rem; padding: 0.6rem 0.8rem; border-radius: 8px;" placeholder="Search messages or name...">
+              </div>
+            </div>
+
+            <!-- Students Tab Search Controls -->
+            <div id="admin-students-controls" style="display: none; background: rgba(255, 255, 255, 0.4); padding: 1.25rem; border-radius: 16px; border: 1px solid var(--glass-border); margin-bottom: 1.5rem;">
+              <div class="form-group" style="margin-bottom: 0;">
+                <input type="text" id="student-search-input" class="form-input" style="font-size: 0.9rem; padding: 0.6rem 0.8rem; border-radius: 8px;" placeholder="Search students by name, contact, stream...">
+              </div>
+            </div>
+
+            <!-- Feedbacks List Container -->
+            <div id="board-feedback-items-container" style="display: flex; flex-direction: column; gap: 1rem; max-height: 420px; overflow-y: auto; padding-right: 0.25rem;">
+              <!-- Dynamically populated via JS -->
+            </div>
+
+            <!-- Students Directory List Container -->
+            <div id="board-students-items-container" style="display: none; flex-direction: column; gap: 1rem; max-height: 420px; overflow-y: auto; padding-right: 0.25rem;">
+              <!-- Dynamically populated via JS -->
+            </div>
+            
+            <!-- Clear Logs Option -->
+            <div id="admin-clear-logs-footer" style="display: flex; justify-content: flex-end; margin-top: 1.25rem;">
+              <button id="btn-clear-feedbacks" class="btn btn-outline btn-sm" style="color: var(--rose); border-color: rgba(244, 63, 94, 0.25); background: rgba(244, 63, 94, 0.02); padding: 0.4rem 0.85rem; font-size: 0.8rem;">
+                🗑️ Clear All Logs
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 9. Resources Hub Screen -->
+    <section id="view-resources" class="screen-view">
+      <div class="resources-intro-section mb-4">
+        <h2>Exams & Scholarships Guidance</h2>
+        <p class="text-muted mt-1">Apni guidelines ke anusar important national exams dates aur sarkari portals check karein.</p>
+      </div>
+      
+      <div id="resources-accordion-container">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+  </main>
+  <footer style="margin-top: 5rem; padding: 2rem 0; border-top: 1px solid var(--glass-border); text-align: center; color: var(--text-muted); font-size: 0.85rem;">
+    <div class="container">
+      <p>© 2026 Your Guider. Empowering school students to design their dream futures.</p>
+      <p style="margin-top: 0.5rem;">Designed & Developed by CloudWithShan.</p>
+    </div>
+  </footer>
+  <!-- Floating Chatbot Widget -->
+  <div id="floating-chatbot-widget" class="floating-chat-container">
+    <button id="btn-toggle-floating-chat" class="floating-chat-trigger" title="AI Mentor Chat">
+      🤖
+    </button>
+    <div id="floating-chat-window" class="floating-chat-window" style="display: none;">
+      <div class="floating-chat-header">
+        <div class="chat-status-dot"></div>
+        <span style="font-weight: 700; color: #fff;">Your Guider AI Mentor</span>
+        <button id="btn-close-floating-chat" class="btn-close-chat">&times;</button>
+      </div>
+      <div id="floating-chat-history" class="floating-chat-history">
+        <!-- Welcoming typewriter animation loads dynamically via JS -->
+      </div>
+      <div class="floating-chat-chips">
+        <button class="f-chat-chip" id="f-chip-parents">Mummy-Papa ko kaise manayein?</button>
+        <button class="f-chat-chip" id="f-chip-ai">AI career ka scope?</button>
+        <button class="f-chat-chip" id="f-chip-army">Army/Navy Officer entry?</button>
+        <button class="f-chat-chip" id="f-chip-police">UP Police S.I. Entry?</button>
+        <button class="f-chat-chip" id="f-chip-ssc-af">Air Force / SSC CGL?</button>
+      </div>
+      <div class="floating-chat-input-row">
+        <input type="text" id="f-chat-input" placeholder="Yahan question type karein...">
+        <button id="f-chat-send-btn">➔</button>
+      </div>
+    </div>
+  </div>
+  <!-- Achievements Modal -->
+  <div id="achievements-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content glass-panel" style="max-width: 500px; margin: 10vh auto; position: relative; padding: 2.5rem; border: 2px solid var(--primary); box-shadow: 0 15px 40px rgba(30, 58, 138, 0.15);">
+      <button id="btn-close-achievements" class="btn-close-chat" style="position: absolute; right: 1.5rem; top: 1.5rem; color: var(--text-muted); font-size: 2rem;">&times;</button>
+      <div class="text-center mb-4">
+        <div style="font-size: 3.5rem; margin-bottom: 0.5rem;">🏆</div>
+        <h2>Mera Progress & Achievements</h2>
+        <p class="text-muted mt-1">Aapki career path activities aur quiz results ka live summary review.</p>
+      </div>
+      <hr class="divider-fine mb-4">
+      
+      <div id="achievements-modal-body" style="display: flex; flex-direction: column; gap: 1.25rem;">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+      
+      <button id="btn-close-achievements-ok" class="btn btn-primary btn-full mt-5">Ok, Got It! 👍</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
